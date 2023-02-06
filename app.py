@@ -5,6 +5,7 @@ import image_utils
 import os
 import logging
 import numpy as np
+import sys
 
 import matplotlib
 matplotlib.use('Agg')
@@ -13,6 +14,8 @@ import matplotlib.pyplot as plt
 app = Flask(__name__)
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
+
+app.config['UPLOAD_FOLDER'] =os.path.join('static', 'EEG')
 
 model = model = tf.keras.models.load_model('simple_model_final.h5')
 
@@ -44,7 +47,7 @@ def diagnose(zeros, ones):
 
 @app.route('/', methods=['GET'])
 def hello_world():
-    clear_directory('EEG')
+    clear_directory(app.config['UPLOAD_FOLDER'])
     clear_directory('images')
     return render_template('index.html')
 
@@ -52,7 +55,7 @@ def hello_world():
 @app.route('/diagnosis', methods=['POST'])
 def predict():
     eegfile=request.files['eegfile']
-    eegpath = os.path.join("EEG", eegfile.filename)
+    eegpath = os.path.join(app.config['UPLOAD_FOLDER'], eegfile.filename)
     eegfile.save(eegpath)
     eegp.process_eeg_data()
     X = image_utils.image_arrays_from_directory('images')
@@ -72,9 +75,7 @@ def predict():
     else:
         ones = 0
 
-    print(zeros, ones)
     diagnosis = diagnose(zeros, ones)
-    print(diagnosis)
     return render_template('sub.html', text=diagnosis)
     
 
