@@ -3,7 +3,7 @@ from tensorflow import keras
 import tensorflow as tf
 import eeg_processing as eegp
 import image_utils
-import glob, os
+import os
 import numpy as np
 
 import matplotlib

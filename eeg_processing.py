@@ -3,8 +3,6 @@ import math
 import random
 import numpy as np
 from matplotlib import gridspec
-from scipy import signal
-from scipy.fft import fftshift
 
 import matplotlib
 matplotlib.use('Agg')
