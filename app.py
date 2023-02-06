@@ -45,7 +45,7 @@ def diagnose(zeros, ones):
 
 
 
-@app.route('/', methods=['GET'])
+@app.route('/')
 def hello_world():
     clear_directory(app.config['UPLOAD_FOLDER'])
     clear_directory('images')
