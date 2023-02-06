@@ -1,33 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SchizoDetector</title>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" rel="stylesheet">
+	<script src="https://cdn.tailwindcss.com"></script>
+    <title>Submit page</title>
 </head>
-<body>
-    <!--<div class="p-4 jumbotron border">
-        <h2 class="text-center text-dark"> Insert your EEG </h2>
-        <br>
+    <body class="bg-slate-100">
+        <div class="flex flex-row w-full h-20 bg-slate-800 text-gray-100 justify-center font-medium items-center font-mono text-lg"> 
+            What Dog Am I?
+        </div>
+        <div class="flex items-center justify-center h-screen">
+            <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                <a href="#">
+                    <img class="rounded-t-lg" src="{{ image }}" alt="">
+                </a>
+                <div class="p-5 text-center">
+                    <a href="#">
+                        <h5 class="mb-2 text-xl font-mono font-medium tracking-tight text-gray-900">{{ name }}</h5>
+                    </a>
+                    
+                    
+                </div>
+            </div>
 
-
-    </div>-->
-
-    <div class="jumbotron mx-4 my-2">
-        <h2 class="display-4 text-center">Schizo-Detector</h2>
-        <hr class="my-4">
+        </div>
         
-        <p class="lead text-center">
-            Your Diagnosis
-            
-        {% if text %}
-            <p class="text-center mt-4">{{text}}</p>
-        {% endif %}
-      </div>
+        <!--<div class="flex flex-row mt-20 font-mono">
+            <div class="basis-1/3"></div>
 
-   
-</body>
+            <div class="basis-1/3 bg-gray-100 rounded-md shadow-2xl px-4 justify-center items-center">
+                <div class="flex flex-row mt-4">
+                    <img src="{{ image }}"" alt="uploaded image" class="rounded-md w-1/2">
+                    <div class="text-lg">
+                        <h4><p> {{ name }} </p></h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="basis-1/3"></div>
+    	</div>-->
+
+
+
+
+
+    </body>
 </html>
