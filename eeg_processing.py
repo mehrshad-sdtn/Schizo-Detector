@@ -3,7 +3,6 @@ import math
 import random
 import numpy as np
 from matplotlib import gridspec
-from app import app
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -102,7 +101,7 @@ def process_eeg_data():
     print(f'the recording is {total_time} seconds long and has total {recording_len} values')
 
 
-    raw_data = convert_to_numbers(read_data(app.config['UPLOAD_FOLDER']))
+    raw_data = convert_to_numbers(read_data(os.path.join('static', 'EEG')))
     by_channels = divide_to_channels(raw_data)
     spec_data = create_spectrogram_data(by_channels)
     generate_images(spec_data, './images')
